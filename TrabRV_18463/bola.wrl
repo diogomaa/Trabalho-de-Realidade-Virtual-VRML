@@ -1,0 +1,68 @@
+#VRML V2.0 utf8
+
+					#VRML V2.0 utf8
+
+
+
+DEF b Transform { 
+	
+
+	children [
+		DEF	p PlaneSensor {
+		
+		 minPosition -0.5 -0.5
+            maxPosition 0.5 0.5
+		}
+		
+ Shape {
+	appearance Appearance {
+		texture	ImageTexture {
+			url	"imagens/bolafut.jpg"
+			
+		} 
+	
+	}	 
+
+	geometry Sphere {
+		
+	
+	
+	
+radius 0.3
+	}
+
+	   
+
+	   
+}
+
+
+ ]
+		   
+}  
+
+
+
+
+	DEF ts TimeSensor {  
+		
+		cycleInterval 1
+					loop TRUE 
+		}
+
+
+
+DEF MOVER OrientationInterpolator {
+   	key [0.0 0.5 1.0]
+			keyValue [0.0 1.0 0.0 0.0,
+				  0.0 1.0 0.0 3.14,
+				  0.0 1.0 0.0 6.28 ]
+                     
+}
+
+	
+ROUTE ts.fraction_changed  TO  MOVER.set_fraction
+ROUTE MOVER.value_changed     TO  b.set_rotation
+
+
+	 ROUTE p.translation_changed TO b.set_translation 

@@ -1,0 +1,117 @@
+#VRML V2.0 utf8
+
+Shape	{
+
+	appearance Appearance {
+		texture	ImageTexture {
+		
+			url	["imagens/dd.png"]
+		
+		
+		}
+
+	
+	}
+	geometry Box {
+	
+	size 20 9 0}
+
+
+}
+
+
+   
+
+Anchor {
+	url "dia.wrl"
+	children [
+		Transform {
+			translation	0 1.5 1
+			children [
+				
+
+
+
+				Shape {
+					appearance Appearance {
+						texture	ImageTexture {
+							url "Imagens/start.png"
+							repeatS	FALSE
+							repeatT	FALSE
+						} 
+					}
+					geometry Box {
+						size 4 2 0
+
+					}	  
+				}
+			]
+		}
+
+	]
+
+}	 
+Anchor {
+	  url "Google.htm"
+	
+	children [
+		Transform {
+			translation	0 0 1
+			children [
+				
+
+
+
+				Shape {
+					appearance Appearance {
+						texture	ImageTexture {
+							url "Imagens/EXIT.png"
+							repeatS	FALSE
+							repeatT	FALSE
+						} 
+					}
+					geometry Box {
+						size 4 2 0
+
+					}	  
+				}
+			]
+		}
+
+	]
+
+}
+ 
+
+
+
+Group { 
+      children [ 
+		DEF vs VisibilitySensor {
+		enabled TRUE 
+	size  1 1 1}
+               	Sound { 
+			source DEF ac AudioClip { 
+				loop FALSE
+				
+						 
+				url "som/mix.mp3" 
+			}		  minFront 5
+    minBack 5
+    maxFront 30
+    maxBack 30
+    location 0 0 0
+		}		  Transform	{
+			
+			children [
+               	Shape {appearance Appearance { material Material {
+					
+				}}
+			geometry Box { size 0 0 0}}
+      ]
+
+}
+]}
+ROUTE vs.enterTime TO ac.set_startTime
+
+

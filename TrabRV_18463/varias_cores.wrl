@@ -1,0 +1,67 @@
+#VRML V2.0 utf8
+
+
+
+DEF	escada Transform {
+
+
+}
+
+DEF criador Script {
+	field SFInt32 NoBrilhos 25
+	field MFString BRILHO["brilho2.wrl"]
+	field SFFloat altura  4
+	field SFNode de USE	criador
+	field SFNode es USE	escada #contem os degraus
+	eventIn MFNode set_brilho
+		field MFColor cores [.52 .32 .25, .32 .64 .36]
+
+	field SFFloat ciclos 2.0
+
+	field SFInt32 contador 0
+	eventOut MFVec3f  spine_changed	  
+		  eventIn MFNode set_brilho2
+
+	url	"javascript:
+	function initialize(){
+	
+		  Browser.createVrmlFromURL(BRILHO,de,'set_brilho'/*vrmlSyntax*/);
+		  
+	}
+	function set_brilho(nodes, to){	
+		var pos=new SFVec3f(-0.6 ,0,-0.6/*SFVec3f v1, SFVec3f v2, ...*/);
+		var rot = new SFRotation(0,1,0,0/*x, y, z, angle*/);
+		dy = altura/NoBrilhos ;
+		pos[1] = dy*contador;
+		nodes[0].translation = pos;
+		da = Math.PI*2*ciclos/NoBrilhos;
+		rot[3] = da*contador;
+	nodes[0].rotation=rot;
+	   es.addChildren = nodes;
+	   contador++;
+	   if(contador<NoBrilhos ){
+		  Browser.createVrmlFromURL(BRILHO,de,'set_brilho'/*vrmlSyntax*/);
+	   }
+	}
+
+
+		function set_brilho2(nodes, to){	
+		var pos=new SFVec3f(-0.6 ,0,-0.6/*SFVec3f v1, SFVec3f v2, ...*/);
+
+	
+		var rot = new SFRotation(0,1,0,0/*x, y, z, angle*/);
+		dy = altura/NoBrilhos ;
+		pos[1] = dy*contador;
+		nodes[0].translation = pos;
+		
+		da = Math.PI*2*ciclos/NoBrilhos;
+		rot[3] = da*contador;
+	nodes[0].rotation=rot;
+	   es.addChildren = nodes;
+	   contador++;
+	   if(contador<NoBrilhos ){
+		  Browser.createVrmlFromURL(BRILHO,de,'set_brilho2'/*vrmlSyntax*/);
+	   }
+	}
+	"}
+

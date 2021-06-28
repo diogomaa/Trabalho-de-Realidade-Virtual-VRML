@@ -1,0 +1,85 @@
+#VRML V2.0 utf8
+
+Transform {
+
+	children [
+	
+		Shape{
+		
+			appearance Appearance{
+			
+				texture ImageTexture {
+					url["imagens/bolhas.png"]
+				
+				}}
+				geometry Box {
+				size 2 2 0
+				
+				}
+				
+		
+		}
+		DEF	cartolasensor TouchSensor{}
+	
+	]
+
+
+}
+
+
+
+DEF COELHO Transform{
+	translation	0 0 0.2
+
+	children [
+	
+	
+		Shape{
+			appearance Appearance {
+				texture	ImageTexture {
+					url["imagens/boia.PNG"]
+				
+				}
+			
+			}
+			geometry Box {
+			size 1 1 0
+			
+			}
+		
+		
+		}
+	
+
+
+	]
+}
+
+
+
+
+	DEF pi PositionInterpolator {
+		key [ 0 0.5 1 ]
+		keyValue [ 0 0 0, 0 3 0, 0 0 0]
+	}
+
+	DEF ts TimeSensor {
+		cycleInterval 2
+		loop FALSE
+
+	}
+   
+
+
+#ROUTE cartolasensor.touchTime TO ts.startTime #toucher starts the timer
+#ROUTE ts.fraction_changed TO pi.set_fraction #timer passes fractions to rotator
+#ROUTE pi.value_changed TO COELHO.set_translation
+ 
+
+
+
+
+ROUTE cartolasensor.touchTime TO ts.startTime #toucher starts the timer
+ROUTE ts.fraction_changed TO pi.set_fraction #timer passes fractions to rotator
+ROUTE pi.value_changed TO COELHO.set_translation # rotator changes movingball rotation
+ROUTE cartolasensor.touchTime  TO ts.stopTime 

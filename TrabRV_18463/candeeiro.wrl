@@ -1,0 +1,139 @@
+#VRML V2.0 utf8
+
+Transform {
+
+
+	children [
+	
+	DEF	BOLALUZ Transform {
+		
+			children [
+			
+			
+				Shape{
+				
+					appearance  Appearance {
+					
+					
+						material DEF luz Material {
+							diffuseColor .76 .73 .54
+							specularColor .38 .38 .27
+							emissiveColor .18 .17 .13
+							ambientIntensity .0533
+							shininess .19
+						}
+					}
+					geometry Sphere	{
+					
+					radius 0.5
+				}
+				
+				} DEF	luzsensor TouchSensor {}
+			
+			]
+		
+		}
+	
+	
+
+	]
+}
+
+
+
+	DEF POSTE Transform {
+			translation	0 -3 0 
+			children [
+		Shape {
+			appearance Appearance {
+				material Material {
+					diffuseColor .38 .38 .38
+					specularColor 0.2 0.2 0.2
+					emissiveColor .18 .18 .18
+					ambientIntensity 0
+					shininess .23
+				}
+			}
+
+			geometry Cylinder {
+			radius 0.3
+			height 5
+			
+		}
+		
+		
+		
+		
+		
+		
+		}
+  
+		Transform	{
+			translation	0 2.6
+		    0 
+			children [ 
+		Shape {
+		
+			appearance Appearance {
+			
+			   	material Material {
+					diffuseColor .38 .38 .38
+						specularColor 0.2 0.2 0.2
+				
+					
+					emissiveColor .18 .18 .18
+					ambientIntensity 0
+					shininess .23
+					  
+				}
+			}
+			geometry Cylinder {
+			
+			radius 0.4 
+			height 0.2
+			
+			
+			}
+		
+		}]}]}
+	
+	
+
+
+		DEF Luz PointLight {
+			location 0 0 0
+			radius 7
+			intensity 3
+			ambientIntensity 0.5
+		}
+		DEF	OnOff Script {
+			url	"javascript:
+				function set_boolean( bool, eventTime) {
+					if (bool == false ) {return; }
+					if ( value == true ) { 
+						value = false;
+						corEmite[0] = 0.4;
+						corEmite[1] = 0.4;
+						corEmite[2] = 0.4;
+				    }
+					else { 
+						value = true; 
+						corEmite[0] = 0.18;
+						corEmite[1] = 0.18;
+						corEmite[2] = 0.18;
+					}
+					value_changed = value;
+					cor_changed = corEmite;
+				}"
+
+			field SFColor corEmite 1.0 1.0 1.0
+			field SFBool value TRUE
+			eventIn	SFBool set_boolean
+			eventOut SFBool	value_changed
+			eventOut SFColor cor_changed
+		}
+
+ROUTE luzsensor.isActive TO OnOff.set_boolean
+ROUTE OnOff.value_changed TO Luz.on
+ROUTE OnOff.cor_changed	TO luz.emissiveColor
+								   

@@ -1,0 +1,58 @@
+#VRML V2.0 utf8
+
+
+
+DEF CARTA Transform { 
+	
+
+	children [
+		
+ Shape {
+	appearance Appearance {
+		texture	ImageTexture {
+			url	"imagens/player.png"
+		
+		} 
+	
+	}	 
+
+	geometry Box {
+		
+	
+	
+	
+	size 2 3 0.07
+	}
+
+	   
+
+	   
+}
+
+
+ ]
+		   
+} 
+
+
+
+
+	DEF ts TimeSensor {  cycleInterval 2
+					loop TRUE 
+		}
+
+
+
+DEF MOVER OrientationInterpolator {
+   	key [0.0 0.5 1.0]
+			keyValue [0.0 1.0 0.0 0.0,
+				  0.0 1.0 0.0 3.14,
+				  0.0 1.0 0.0 6.28 ]
+                     
+}
+
+	
+ROUTE ts.fraction_changed  TO  MOVER.set_fraction
+ROUTE MOVER.value_changed     TO  CARTA.set_rotation
+
+

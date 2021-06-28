@@ -1,0 +1,32 @@
+#VRML V2.0 utf8
+
+DEF barco Transform { 
+	translation 14 0.5 45
+	scale 0.001 0.001 0.001
+    rotation 0 -1 0 1.1
+	children [ Inline { url "barco.wrl" }] 
+}
+
+
+DEF sensor TouchSensor {}
+
+	DEF timer TimeSensor {
+	cycleInterval 8
+	loop FALSE
+}
+
+DEF pi PositionInterpolator {
+	key [ 0 1 ]
+	keyValue [14 0.5 45, 1 0.5 20]
+}
+
+DEF si ScalarInterpolator {
+	key [ 0 0.5 1]
+	keyValue [0 1]
+}
+
+
+ROUTE sensor.touchTime TO timer.set_startTime
+ROUTE timer.fraction_changed TO si.set_fraction
+ROUTE si.value_changed TO pi.set_fraction
+ROUTE pi.value_changed TO barco.set_translation

@@ -1,0 +1,91 @@
+#VRML V2.0 utf8
+
+	
+
+
+
+
+
+
+
+	DEF ESFERA1 Transform {
+		translation	-0.5 0.6 -1.5
+		children	[
+		
+			Shape {
+				appearance Appearance {
+					texture	DEF TEXTURA ImageTexture {
+						url["imagens/MOON.jpg"]
+						
+					
+					
+					}
+				
+				}
+			
+				geometry Sphere	{
+				
+				radius 2
+				
+				}
+			}
+		
+		
+		]
+	
+	
+	}
+
+
+
+
+	DEF ts TimeSensor {  cycleInterval 2
+					loop TRUE 
+		}
+
+
+
+DEF MOVER OrientationInterpolator {
+   	key [0.0 0.5 1.0]
+			keyValue [0.0 1.0 0.0 0.0,
+				  0.0 1.0 0.0 3.14,
+				  0.0 1.0 0.0 6.28 ]
+                     
+
+
+
+
+}
+
+
+
+
+
+
+
+#DEF MUDAIMAGEM Script {
+#	field MFString url1 "imagens/lo.jpg"
+#	field MFString url2 ""
+#	field MFString url3 ""
+#	field SFBool onoff TRUE
+#	field SFBool videoparado TRUE
+	
+#	eventOut MFString url_muda
+#	eventOut SFBool on_painting
+#	eventIn SFTime painting
+#	eventIn SFTime mudaTextura
+	
+
+
+
+	 
+
+	
+
+					 
+	  
+	
+ROUTE ts.fraction_changed  TO  MOVER.set_fraction
+ROUTE MOVER.value_changed     TO  ESFERA1.set_rotation
+
+		

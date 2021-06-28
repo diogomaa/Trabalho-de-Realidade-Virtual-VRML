@@ -1,0 +1,351 @@
+#VRML V2.0 utf8
+
+Group {
+	children [
+
+		Transform {
+			translation	0 0 0
+			children Shape {
+				appearance Appearance {
+				material Material {diffuseColor	0.5 0.5 0.5}
+				texture ImageTexture {url "imagens/bambo.jpg"}
+				}
+				geometry Box {
+					size 0.1 0.75 8
+
+				}
+			}
+		}
+
+
+		Anchor {
+	url "noite.wrl"
+	children [
+		Transform {
+			translation	-4 1 3
+			rotation 0 1 0 1.57
+			children [
+				
+
+
+
+				Shape {
+					appearance Appearance {
+						
+						texture	ImageTexture {
+							url "imagens/lua.png"
+							repeatS	FALSE
+							repeatT	FALSE
+						} 
+					}
+					geometry Box {
+						size 1 1 0
+
+					}	  
+				}
+			]
+		}
+
+	]
+
+}
+Anchor {
+	url "dia.wrl"
+	children [
+		Transform {
+			translation	-4 1 1.5
+			rotation 0 1 0 1.57
+			children [
+				
+
+
+
+				Shape {
+					appearance Appearance {
+						
+						texture	ImageTexture {
+							url "imagens/sol.png"
+							repeatS	FALSE
+							repeatT	FALSE
+						} 
+					}
+					geometry Box {
+						size 1 1 0
+
+					}	  
+				}
+			]
+		}
+
+	]
+
+}
+	   
+	   Transform {
+			translation	-2.8 0.8 0.9
+			children Shape {
+				appearance Appearance {
+					material Material {diffuseColor	0.3 0.6 0.8
+					transparency 0.5}
+				}
+				geometry Box {
+					size 0.05 2.3 6
+				}
+			}
+		}
+	   
+	  
+	 
+
+		Transform {
+			translation	0 0.77 -2.225
+			children Shape {
+				appearance Appearance {
+					material Material {diffuseColor	0.5 0.5 0.5}
+					texture ImageTexture {url "imagens/bambo.jpg"}
+				}
+				geometry Box {
+					size 0.1 0.8 3.55
+				}
+			}
+		}
+
+		Transform {
+			translation	0 0.77 0
+			children Shape {
+				appearance Appearance {
+					material Material {diffuseColor	0.3 0.6 0.8
+					transparency 0.5}
+				}
+				geometry Box {
+					size 0.1 0.8 0.9
+				}
+			}
+		}
+		  Transform {
+			translation	-2.8 0.4 -3.4
+			children Shape {
+				appearance Appearance {
+					material Material {diffuseColor	0.3 0.6 0.8
+					transparency 0.5}
+				}
+				geometry Box {
+					size 0.05 1.8 1
+				}
+			}
+		}
+
+		Transform {
+			translation	0 0.77 2.225
+			children Shape {
+				appearance Appearance {
+					material Material {diffuseColor	0.5 0.5 0.5}
+					texture ImageTexture {url "imagens/bambo.jpg"}
+				}
+				geometry Box {
+					size 0.1 0.8 3.55
+				}
+			}
+		}
+
+		Transform {
+			translation	0 1.54 0
+			children Shape {
+				appearance Appearance {
+					material Material {diffuseColor	0.5 0.5 0.5}
+					texture ImageTexture {url "imagens/bambo.jpg"}
+				}
+				geometry Box {
+					size 0.1 0.75 8
+				}
+			}
+		}
+
+		Transform {
+			translation	-0.85 1.95 0
+			children Shape {
+				appearance Appearance {
+					material Material {diffuseColor	0.5 0.5 0.5}
+					texture ImageTexture {url "imagens/madeira.jpg"}
+				}
+				geometry Box {
+					size 4 0.1 8
+				}
+			}
+		}
+
+		Transform {
+			translation	-0.85 -0.4 0
+			children Shape {
+				appearance Appearance {
+					material Material {diffuseColor	0.5 0.5 0.5}
+					texture ImageTexture {url "imagens/madeira.jpg"}
+				}
+				geometry Box {
+					size 4 0.1 8
+				}
+			}
+		}
+
+		Transform {
+			translation	-4 -0.4 0
+			children Shape {
+				appearance Appearance {
+					material Material {diffuseColor	0.5 0.5 0.5}
+					texture ImageTexture {url "imagens/madeira.jpg"}
+					
+				}
+				geometry Box {
+					size 8 0.08 7.9
+				}
+			}
+		}
+
+		Transform {
+			translation	-0.85 0.8 -3.95
+			children Shape {
+				appearance Appearance {
+					material Material {diffuseColor	0.5 0.5 0.5}
+					texture ImageTexture {url "imagens/bambo.jpg"}
+				}
+				geometry Box {
+					size 4 2.3 0.1
+				}
+			}
+		}
+
+		Transform {
+			translation	-0.85 0.8 3.95
+			children Shape {
+				appearance Appearance {
+					material Material {diffuseColor	0.5 0.5 0.5}
+					texture ImageTexture {url "imagens/bambo.jpg"}
+				}
+				geometry Box {
+					size 4 2.3 0.1
+				}
+			}
+		}
+
+	
+	]
+} 
+
+
+Group 
+{ 
+   children 
+   [ 
+        
+	   DEF Touch TouchSensor {} 
+        
+	   DEF Door Transform
+	   {
+			translation -2.8 0.4 -2.5
+			rotation 1 0 0 0 
+			center 0 -2.8 0.4
+			children Shape
+			{
+				appearance Appearance 
+				{ 
+					material Material 
+					{ 
+						diffuseColor 0 0 0.8
+						transparency 0.6
+					}
+		
+				}
+				geometry Box
+				{
+					size 0.05 1.8 0.8 
+				}
+			}
+	
+		}
+	   
+	   DEF pega Transform
+	   {
+			translation -2.8 0.3 -2.6
+			rotation 1 0 0 0
+			center 0 -2.8 0.48
+			children Shape
+			{
+				appearance Appearance 
+				{ 
+					material Material 
+					{ 
+						diffuseColor 0.8 0.8 0.8
+					}
+		
+				}
+				geometry Box
+				{
+					size 0.04 0.2 0.1
+				}
+			}
+	
+		} 
+   ] 
+}
+
+
+DEF Timer TimeSensor { 
+        cycleInterval 1.0 
+        loop FALSE 
+	}
+
+DEF Opener1 Script { 
+  field SFRotation opened 0.0 1.0 0.0 3.3
+  field SFRotation closed 0.0 0.0 1.0 0.0  
+  eventIn SFFloat time 
+  eventOut SFRotation value_changed 
+  url "javascript: 
+    var open; 
+    function initialize(){ 
+        open = false; 
+    } 
+    function time (t){ 
+        if (open) { 
+          if (t>=1) open = false; 
+          value_changed = opened.slerp(closed, t); 
+        } 
+        else { 
+          if (t>=1) open = true; 
+          value_changed = closed.slerp(opened, t); 
+        } 
+    }
+   
+   " 
+}
+
+DEF Opener2 Script { 
+  field SFRotation opened 0.0 1.0 0.0 3.3
+  field SFRotation closed 0.0 0.0 1.0 0.0 
+  eventIn SFFloat time 
+  eventOut SFRotation value_changed 
+  url "javascript: 
+    var open; 
+    function initialize(){ 
+        open = false; 
+    } 
+    function time (t){ 
+        if (open) { 
+          if (t>=1) open = false; 
+          value_changed = opened.slerp(closed, t); 
+        } 
+        else { 
+          if (t>=1) open = true; 
+          value_changed = closed.slerp(opened, t); 
+        } 
+    }
+   
+   " 
+}
+
+
+ROUTE Touch.touchTime TO Timer.set_startTime 
+ROUTE Timer.fraction_changed TO Opener1.time 
+ROUTE Opener1.value_changed TO Door.set_rotation
+
+ROUTE Timer.fraction_changed TO Opener2.time 
+ROUTE Opener2.value_changed TO pega.set_rotation

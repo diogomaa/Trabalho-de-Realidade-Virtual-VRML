@@ -1,0 +1,34 @@
+#VRML V2.0 utf8
+
+Transform {
+
+
+	children [
+	
+		Shape{
+		
+			appearance Appearance {
+				texture	 MovieTexture {
+				
+					url	["imagens/rio.gif"]
+					loop TRUE
+				}
+				material Material { diffuseColor 0.3 0.3 1 }	
+				texture MovieTexture {repeatS TRUE repeatT TRUE loop TRUE url "imagens/water4.gif"}
+				textureTransform TextureTransform {scale 3 1}
+
+
+			}
+
+			geometry Box {
+			size 40 0 20
+			
+			}
+		
+		
+		}
+	
+	
+	]
+
+}
